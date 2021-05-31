@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title%}Create Chat{% endblock%}
+{% block content %}
+<div class="position-relative">
+    <span class="d-block p-3 bg-primary text-white fw-bol">Name</span>
+    <div class="position-absolute top-0 end-0 btn-lg">
+        <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+    </div>
+</div><br>
+<div class="chat overflow-auto">
+    <figure>
+        <blockquote class="blockquote">
+            <div class="badge bg-primary text-wrap text-start fs-6 lh-sm" style="width: 15rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur bibendum justo non orci.
+                Pellentesque
+                arcu. Nam sed tellus id magna elementum tincidunt. Vivamus porttitor turpis ac leo.
+            </div>
+        </blockquote>
+        <figcaption class="blockquote-footer">User1</figcaption>
+    </figure>
+
+    <figure class="text-end">
+        <blockquote class="blockquote">
+            <div class="badge bg-success text-wrap text-start fs-6 lh-sm" style="width: 15rem;">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum. Morbi scelerisque luctus velit. Nulla est. Pellentesque arcu. Etiam posuere lacus quis dolor.
+            </div>
+        </blockquote>
+        <figcaption class="blockquote-footer">User2</figcaption>
+    </figure>
+
+    <figure>
+        <blockquote class="blockquote">
+            <div class="badge bg-primary text-wrap text-start fs-6 lh-sm" style="width: 15rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur bibendum justo non orci.
+                Pellentesque
+                arcu. Nam sed tellus id magna elementum tincidunt. Vivamus porttitor turpis ac leo.
+            </div>
+        </blockquote>
+        <figcaption class="blockquote-footer">User1</figcaption>
+    </figure>
+</div>
+
+<div class="form-floating">
+    <textarea class="form-control gap-2" id="floatingTextarea2" style="height: 70px"></textarea>
+    <label for="floatingTextarea2">Message</label>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Send</button>
+    </div>
+</div>
+{% endblock%}
