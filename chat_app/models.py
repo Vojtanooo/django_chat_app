@@ -1,3 +1,3 @@
 from django.db import models
-
-# Create your models here.
+from django.conf import Settings, settings
+from django.db.models.base import Model
