@@ -1,17 +1,73 @@
-.wrapper {
-    background-color:white;
-    width: 540px;
+body {
+    background-image: linear-gradient(rgba(124, 124, 124, 0.527),rgb(253, 253, 253));
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: Helvetica,
+}
+
+html {
+    height: 100%
+}
+
+.name{
+    font-family:'Courier New';
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.chat_flexbox_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_wrapper {
+    flex-shrink: 0;
+    background-color:#f2f2f2;
+    width: 300px;
     height: 750px;
-    margin: auto;
+    margin: 15px;
     margin-top: 50px;
+    margin-left: 50px;
     padding: 25px 25px;
 }
 
+.chat_wrapper {
+    background-color:#f2f2f2;
+    width: 740px;
+    height: 750px;
+    margin: 15px;
+    margin-top: 50px;
+    padding: 30px;
+}
+
 .chat {
-    background-color:white;
-    width: 510px;
-    height: 500px;
+    background-color:#f2f2f2;
+    width: auto;
+    height: 550px;
     padding: 15px 15px;
     margin: auto;
     margin-bottom: 10px;
+}
+
+.mycustom {
+    position: relative;
+    height: 50px;
+}
+.mycustom input[type=text] {
+    border: none;
+    width: 100%;
+    padding-right: 123px;
+}
+.mycustom .input-group-prepend {
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    bottom: 5px;z-index:9;
+}
+
+.top_bar_flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
