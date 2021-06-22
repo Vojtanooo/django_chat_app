@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5o747e8z!%0^qmdz+pnsyoa#mxd%nv7&&px436g(nve8)@c=w-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "chat_app",
     "channels",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = "django_chat_app.routing.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
