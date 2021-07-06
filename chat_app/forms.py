@@ -6,7 +6,14 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserForm(UserCreationForm):
-    email = forms.EmailField()
+    username = forms.CharField(max_length=50,
+                               widget=forms.TextInput(attrs={"class": "form-control", "id": "floatingUsername", "placeholder": "Username"}))
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={"class": "form-control", "id": "floatingEmail", "placeholder": "Email"}))
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control", "id": "floatingPassword1", "placeholder": "Password"}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control", "id": "floatingPassword2", "placeholder": "Password confirmation"}))
 
     class Meta:
         model = User
