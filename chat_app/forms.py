@@ -11,7 +11,12 @@ class UserForm(UserCreationForm):
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={"class": "form-control", "id": "floatingEmail", "placeholder": "Email"}))
     password1 = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "form-control", "id": "floatingPassword1", "placeholder": "Password"}))
+        widget=forms.PasswordInput(attrs={"class": "form-control", "id": "floatingPassword1", "placeholder": "Password",
+                                          "data-bs-toggle": "tooltip", "data-bs-placement": "bottom", "title":
+                                          """Your password can’t be too similar to your other personal information.
+                                          Your password must contain at least 8 characters.
+                                          Your password can’t be a commonly used password.
+                                          Your password can’t be entirely numeric."""}))
     password2 = forms.CharField(
         widget=forms.PasswordInput(attrs={"class": "form-control", "id": "floatingPassword2", "placeholder": "Password confirmation"}))
 
