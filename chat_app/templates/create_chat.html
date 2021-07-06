@@ -1,5 +1,16 @@
 {% extends "base.html" %}
-{% block title%}Create Chat{% endblock%}
+{% block title%}{{ room_user_name }}{% endblock%}
+
+{% block menu %}
+<h1>{{ username }}</h1>
+{% for user, item in room.items %}
+    <a href="{% url "room" item %}">{{ user }}</a><br>
+{% endfor %}
+{% endblock %}
+
+
+
+
 {% block content %}
 
 {{ room_name|json_script:"room-name" }}
@@ -9,7 +20,7 @@
     <div class="border-bottom border-2">
         <div class="top_bar_flexbox">
             <div>
-                <p class="name text-start text-capitalize fs-3 lh-sm">{{ room_name }}</p>
+                <p class="name text-start text-capitalize fs-3 lh-sm" id="pass-user-name">{{ room_user_name }}</p>
             </div>
             <div>
                 <i class="bi bi-camera-video-fill" style="font-size: 40px; color: rgba(26, 48, 241, 0.767);"></i>
@@ -22,22 +33,17 @@
 <div class="chat overflow-auto">
     <div id="new-message-chat"></div>
 </div>
-<form>
-    <div class="input-group mycustom shadow-lg">
-        <input type="text" class="form-control rounded" placeholder="Type a message..." id="input" required>
-        <div class="mycustom input-group-prepend">
-            <i class="bi bi-arrow-right-circle-fill" id="submit" type="button" value="Send"
-                style="font-size: 40px; color: rgba(26, 48, 241, 0.767);"></i>
-        </div>
+<div class="input-group mycustom shadow-lg">
+    <input type="text" class="form-control rounded" placeholder="Type a message..." id="input" required>
+    <div class="mycustom input-group-prepend">
+        <i class="bi bi-arrow-right-circle-fill" id="submit" type="button" value="Send"
+            style="font-size: 40px; color: rgba(26, 48, 241, 0.767);"></i>
     </div>
-</form>
+</div>
+
 
 
 <script>
-
-    // document.getElementById("close_button").onclick = function () {
-    //     location.href = "{% url "chat_app" %}";
-    // };
 
     const user_username = JSON.parse(document.getElementById('user_username').textContent);
 
