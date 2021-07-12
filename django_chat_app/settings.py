@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5o747e8z!%0^qmdz+pnsyoa#mxd%nv7&&px436g(nve8)@c=w-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "chat_app",
     "channels",
     "crispy_forms",
+    "django_cleanup",
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,9 @@ CHANNEL_LAYERS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = 'login'
