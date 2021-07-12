@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
+from django.forms import widgets
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    picture = models.ImageField(
-        upload_to="chat_app/profile_pics", max_length=100,)
+    picture = models.ImageField()
 
     def save(self):
         super().save()
