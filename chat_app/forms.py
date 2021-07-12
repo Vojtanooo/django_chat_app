@@ -1,5 +1,5 @@
 from django.db.models import fields
-from chat_app.models import User
+from chat_app.models import UserProfile
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -23,3 +23,23 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+
+
+class UserUpdateForm(forms.ModelForm):
+    username = forms.CharField(max_length=50,
+                               widget=forms.TextInput(attrs={"class": "form-control", "id": "floatingUsername"}))
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={"class": "form-control", "id": "floatingEmail"}))
+
+    class Meta:
+        model = User
+        fields = ["username", "email"]
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    picture = forms.ImageField(
+        widget=forms.FileInput(attrs={"class": "form-control"}))
+
+    class Meta:
+        model = UserProfile
+        fields = ["picture"]
