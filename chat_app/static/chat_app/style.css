@@ -26,10 +26,11 @@ html {
     background-color:#f2f2f2;
     width: 300px;
     height: 750px;
-    margin: 15px;
+    margin: 10px;
     margin-top: 50px;
     margin-left: 50px;
-    padding: 25px 25px;
+    padding: 10px 10px;
+    padding-top: 10px;
 }
 
 .chat_wrapper {
@@ -38,16 +39,23 @@ html {
     height: 750px;
     margin: 15px;
     margin-top: 50px;
-    padding: 30px;
+    padding: 15px;
 }
 
 .chat {
     background-color:#f2f2f2;
     width: auto;
-    height: 550px;
+    height: 560px;
     padding: 15px 15px;
     margin: auto;
     margin-bottom: 10px;
+}
+
+.menu {
+    background-color:#f2f2f2;
+    width: auto;
+    height: 600px;
+    margin: auto; 
 }
 
 .mycustom {
@@ -70,4 +78,35 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.menu_name {
+    background-color:#f2f2f2;
+    width: auto;
+    height: 70px;
+    border-radius: 3px;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.menu_name:hover {
+    background-color:rgba(124, 124, 124, 0.527);
+    width: auto;
+    height: 70px;
+    border-radius: 3px;
+}
+
+.menu a {
+    font-size: 20px;
+    color: rgba(26, 48, 241, 0.767);
+    
+}
+
+.menu a:link {
+    text-decoration: none;
+}
+
+.menu_name img {
+    width: 55px;
+    height: 55px;
 }
