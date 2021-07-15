@@ -97,6 +97,7 @@ html {
 }
 
 .menu a {
+    font-family:'Courier New';
     font-size: 20px;
     color: rgba(26, 48, 241, 0.767);
     
@@ -109,4 +110,27 @@ html {
 .menu_name img {
     width: 55px;
     height: 55px;
+}
+
+.line-center{
+    margin:0;padding:0 10px;
+    background:#f2f2f2;
+    display:inline-block;
+}
+h5{
+    font-family:'Courier New';
+    text-align:center;
+    position:relative;
+    z-index:2;
+    color: rgb(107, 107, 107);
+    
+}
+h5:after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    border-top:solid 1px rgb(107, 107, 107);
+    z-index:-1;
 }

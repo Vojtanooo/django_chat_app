@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, UserPasswordChange, UserUpdateForm, ProfileUpdateForm
+from .models import ChatMessages
 
 
 def register_page(request):
@@ -39,6 +40,8 @@ def room(request, room_name):
     username = request.user
     User = get_user_model()
     users = User.objects.all()
+    user_messages = ChatMessages.objects.filter(
+        room=room_name).order_by("-created_at")[:10:-1]
 
     dict_of_users_href = {}
     for user in users:
@@ -59,7 +62,8 @@ def room(request, room_name):
         "room": dict_of_users_href,
         "room_name": room_name,
         "username": username, "users": users,
-        "room_user_name": room_user_name
+        "room_user_name": room_user_name,
+        "user_messages": user_messages
     })
 
 

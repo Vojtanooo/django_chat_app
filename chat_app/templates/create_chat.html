@@ -69,7 +69,31 @@
         </div>
     </div>
 </div><br>
-<div class="chat overflow-auto">
+<div class="chat overflow-auto" id="chat">
+    {% if user_messages %}
+        {% for mess in user_messages %}
+            {% if mess.username == request.user.username %}
+            <figure>
+                <blockquote class="blockquote">
+                    <div class="badge text-wrap text-start fs-6 lh-sm" style="width: 15rem; background-color: rgba(26, 48, 241, 0.767);">
+                        {{ mess.message }} 
+                    </div>
+                </blockquote>
+                <figcaption class="blockquote-footer">{{ mess.username }}</figcaption>
+            </figure>
+            {% else %}
+            <figure class="text-end">
+                <blockquote class="blockquote">
+                    <div class="badge text-wrap text-start fs-6 lh-sm" style="width: 15rem; background-color: #757575;">
+                        {{ mess.message }} 
+                    </div>
+                </blockquote>
+                <figcaption class="blockquote-footer">{{ mess.username }}</figcaption>
+            </figure>
+            {% endif %}
+        {% endfor %}
+        <h5><span  class="line-center">History</span></h5>
+        {% endif %}
     <div id="new-message-chat"></div>
 </div>
 <div class="input-group mycustom shadow-lg">
@@ -83,6 +107,8 @@
 
 
 <script>
+    var objDiv = document.getElementById("chat");
+    objDiv.scrollTop = objDiv.scrollHeight;
 
     const user_username = JSON.parse(document.getElementById('user_username').textContent);
 
