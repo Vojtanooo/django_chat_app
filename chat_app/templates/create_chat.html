@@ -59,7 +59,7 @@
                     {% endif %} 
             </div>
             <div>
-                <p class="name text-start text-capitalize fs-3 lh-sm">{{ room_user_name }}</p>
+                <p class="name text-start text-capitalize fs-3 lh-sm">{{ room_user_name|date:"M d,Y" }}</p>
             </div>
             <div>
                 <i class="bi bi-camera-video-fill" style="font-size: 40px; color: rgba(26, 48, 241, 0.767);"></i>
@@ -79,7 +79,7 @@
                         {{ mess.message }} 
                     </div>
                 </blockquote>
-                <figcaption class="blockquote-footer">{{ mess.username }}</figcaption>
+                <figcaption class="blockquote-footer">{{ mess.username }} - {{ mess.created_at }}</figcaption>
             </figure>
             {% else %}
             <figure class="text-end">
@@ -88,7 +88,7 @@
                         {{ mess.message }} 
                     </div>
                 </blockquote>
-                <figcaption class="blockquote-footer">{{ mess.username }}</figcaption>
+                <figcaption class="blockquote-footer">{{ mess.username }} - {{ mess.created_at }}</figcaption>
             </figure>
             {% endif %}
         {% endfor %}
@@ -159,7 +159,7 @@
                                     ${msg}
                                 </div>
                             </blockquote>
-                            <figcaption class="blockquote-footer">${usrnm}</figcaption>
+                            <figcaption class="blockquote-footer">${usrnm}   ${new Date().toLocaleTimeString()}</figcaption>
                         </figure>`
 
         } else {
@@ -169,7 +169,7 @@
                                     ${msg}
                                 </div>
                             </blockquote>
-                            <figcaption class="blockquote-footer">${usrnm}</figcaption>
+                            <figcaption class="blockquote-footer">${usrnm}   ${new Date().toLocaleTimeString()}</figcaption>
                         </figure>`
         }
 
