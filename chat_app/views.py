@@ -28,7 +28,7 @@ def login_page(request):
 
         if user is not None:
             login(request, user)
-            return redirect("room", room_name="Welcome")
+            return redirect("room", room_name="welcome")
         else:
             messages.error(request, f"Username or Password is incorect!")
 
@@ -42,6 +42,7 @@ def room(request, room_name):
     users = User.objects.all()
     user_messages = ChatMessages.objects.filter(
         room=room_name).order_by("-created_at")[:10:-1]
+    print(ChatMessages.objects.values("created_at"))
 
     dict_of_users_href = {}
     for user in users:
@@ -49,13 +50,12 @@ def room(request, room_name):
             dict_of_users_href[user] = "chat{}_{}".format(
                 *sorted([username.id, user.id]))
 
-    if room_name == "Welcome":
-        room_user_name = "Welcome"
+    if room_name == "welcome":
+        room_user_name = "welcome"
     else:
         room_user_list = str(room_name).strip("chat").split("_")
         if str(username.id) in room_user_list:
             room_user_list.remove(str(username.id))
-
         room_user_name = User.objects.get(id=room_user_list[0])
 
     return render(request, "create_chat.html", {
@@ -67,6 +67,7 @@ def room(request, room_name):
     })
 
 
+@login_required()
 def profile(request):
     if request.method == "POST":
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -79,7 +80,7 @@ def profile(request):
             p_form.save()
             pswrd_form.save()
             update_session_auth_hash(request, pswrd_form.user)
-            return redirect("room", room_name="Welcome")
+            return redirect("room", room_name="welcome")
         else:
             print(pswrd_form.errors)
     else:
