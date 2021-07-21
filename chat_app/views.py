@@ -42,7 +42,6 @@ def room(request, room_name):
     users = User.objects.all()
     user_messages = ChatMessages.objects.filter(
         room=room_name).order_by("-created_at")[:10:-1]
-    print(ChatMessages.objects.values("created_at"))
 
     dict_of_users_href = {}
     for user in users:
