@@ -73,6 +73,11 @@
                     <a href="{% url "logout" %}">Logout here!</a>
                 </div>
             </div>
+            <div class="position-relative">
+                <div class="position-absolute bottom-0 start-0">
+                    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+                </div>
+            </div>
             </form>
         </div>
     </div>
