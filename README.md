@@ -4,7 +4,7 @@
 # Features
 
 -  You can create your profile and update picture,email,password
--  Then you can chat with everyone registered on thit chat (friendlist will be implement some day... :D)
+-  Then you can chat with everyone registered on this chat (friendlist will be implement some day... :D)
 -  Chat will show you last 10 messages with your contact
 
 # Venv
